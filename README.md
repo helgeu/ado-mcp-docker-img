@@ -37,9 +37,9 @@ docker run --platform linux/amd64 -i --rm \
    - **Build**: Read
    - **Release**: Read
 
-## Usage with Claude Desktop
+## Usage with Claude Code / Claude Desktop
 
-Add to your Claude Desktop MCP configuration (`~/.claude/claude_desktop_config.json`):
+Add to your MCP configuration:
 
 ```json
 {
@@ -47,11 +47,18 @@ Add to your Claude Desktop MCP configuration (`~/.claude/claude_desktop_config.j
     "azure-devops": {
       "command": "docker",
       "args": [
-        "run", "--platform", "linux/amd64", "-i", "--rm",
-        "-e", "ADO_ORG=your-organization",
-        "-e", "ADO_MCP_AUTH_TOKEN=your-pat-token",
+        "run",
+        "--platform", "linux/amd64",
+        "-i",
+        "--rm",
+        "-e", "ADO_ORG",
+        "-e", "ADO_MCP_AUTH_TOKEN",
         "ghcr.io/helgeu/ado-mcp-docker-img:latest"
-      ]
+      ],
+      "env": {
+        "ADO_ORG": "your-organization",
+        "ADO_MCP_AUTH_TOKEN": "your-pat-token"
+      }
     }
   }
 }
