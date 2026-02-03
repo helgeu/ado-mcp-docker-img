@@ -71,10 +71,38 @@ This repository uses GitHub Actions to:
 - Check daily for new upstream releases
 - Automatically tag and build new versions when upstream updates
 
+## Managing Workflows with GitHub CLI
+
+```bash
+# List workflows and their status
+gh workflow list
+
+# List recent workflow runs
+gh run list --limit 5
+
+# Manually trigger a build
+gh workflow run "Build and Push Docker Image"
+
+# Trigger build with specific version
+gh workflow run "Build and Push Docker Image" -f ado_mcp_version=2.4.0
+
+# Watch a running workflow
+gh run watch
+
+# View logs from the latest run
+gh run view --log
+
+# View logs from a failed run
+gh run view --log-failed
+
+# Check upstream npm package version
+npm view @azure-devops/mcp version
+```
+
 ## Available Tags
 
 - `latest` - Latest build from main branch
-- `x.y.z` - Specific upstream version (e.g., `1.0.0`)
+- `x.y.z` - Specific upstream version (e.g., `2.4.0`)
 - `main` - Latest commit on main branch
 
 ## License
