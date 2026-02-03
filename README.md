@@ -5,12 +5,12 @@ Docker image wrapping the official [Microsoft Azure DevOps MCP server](https://g
 ## Quick Start
 
 ```bash
-docker pull ghcr.io/YOUR_USERNAME/ado-mcp-docker-img:latest
+docker pull ghcr.io/helgeu/ado-mcp-docker-img:latest
 
 docker run -i --rm \
   -e ADO_ORG=your-organization \
   -e ADO_MCP_AUTH_TOKEN=your-pat-token \
-  ghcr.io/YOUR_USERNAME/ado-mcp-docker-img:latest
+  ghcr.io/helgeu/ado-mcp-docker-img:latest
 ```
 
 ## Environment Variables
@@ -42,7 +42,7 @@ Add to your Claude Desktop MCP configuration (`~/.claude/claude_desktop_config.j
         "run", "-i", "--rm",
         "-e", "ADO_ORG=your-organization",
         "-e", "ADO_MCP_AUTH_TOKEN=your-pat-token",
-        "ghcr.io/YOUR_USERNAME/ado-mcp-docker-img:latest"
+        "ghcr.io/helgeu/ado-mcp-docker-img:latest"
       ]
     }
   }
