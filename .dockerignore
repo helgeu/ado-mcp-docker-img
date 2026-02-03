@@ -1,0 +1,17 @@
+# Git
+.git
+.gitignore
+
+# Documentation
+*.md
+LICENSE
+
+# CI/CD
+.github/
+
+# Environment files
+.env*
+
+# Editor
+.vscode/
+.idea/
