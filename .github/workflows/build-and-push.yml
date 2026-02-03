@@ -99,7 +99,9 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          platforms: linux/amd64,linux/arm64
+          # arm64 disabled: QEMU fails on native npm modules
+          # Use --platform linux/amd64 on Apple Silicon Macs
+          platforms: linux/amd64
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}

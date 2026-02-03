@@ -13,6 +13,14 @@ docker run -i --rm \
   ghcr.io/helgeu/ado-mcp-docker-img:latest
 ```
 
+**Apple Silicon Macs**: Add `--platform linux/amd64` (runs via Rosetta):
+```bash
+docker run --platform linux/amd64 -i --rm \
+  -e ADO_ORG=your-organization \
+  -e ADO_MCP_AUTH_TOKEN=your-pat-token \
+  ghcr.io/helgeu/ado-mcp-docker-img:latest
+```
+
 ## Environment Variables
 
 | Variable | Required | Description |
@@ -39,7 +47,7 @@ Add to your Claude Desktop MCP configuration (`~/.claude/claude_desktop_config.j
     "azure-devops": {
       "command": "docker",
       "args": [
-        "run", "-i", "--rm",
+        "run", "--platform", "linux/amd64", "-i", "--rm",
         "-e", "ADO_ORG=your-organization",
         "-e", "ADO_MCP_AUTH_TOKEN=your-pat-token",
         "ghcr.io/helgeu/ado-mcp-docker-img:latest"
